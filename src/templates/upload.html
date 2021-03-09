@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>Youtube Downloader</title>
+  </head>
+  <body>
+    <style>
+        body {
+            background-image: url("https://mcdn.wallpapersafari.com/medium/47/44/GDqpEN.jpg");
+            background-color: #cccccc;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+           }
+
+        .preloader{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #f2f2fc;
+    transition: all .5s;
+}
+.spinner{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.circle1, .circle2{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #4953cf;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: bounce 2.0s infinite ease-in-out;
+}
+.circle2{
+    animation-delay: -1.0s;
+}
+@keyframes bounce {
+    0%, 100%{
+        transform: scale(0.0);
+    }
+    50%{
+        transform: scale(1.0);
+    }
+}
+.hide-preloader{
+    opacity: 0;
+    pointer-events: none;
+}
+    
+    </style>
+
+    
+    <div class="container d-flex" style="height: 100vh">
+        <div class="m-auto" style="text-align: center;">
+            
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input class="form-control form-control-lg" style="width: 50vh;" type="text" name="link" placeholder="Enter Video url"><br>
+            <button onclick="aaa()" class="btn btn-success" type="submit"> Download </button>
+         
+        </form>
+    </div>
+    </div>
+    <div class="preloader">
+        <div class="spinner">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+       </div>
+    </div>
+    
+    <script>
+    const container = document.querySelector('.preloader');
+    window.addEventListener('load', ()=>{
+        container.classList.add('hide-preloader');
+        
+    })
+
+    function aaa() {
+      console.log("fdd")
+      container.classList.remove('hide-preloader');
+    }
+    
+</script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
